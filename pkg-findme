@@ -1,3 +1,1 @@
-# yaourt currently broken:
-#yaourt -Ss $@
 pacman -Ss $@
