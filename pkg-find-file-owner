@@ -1,1 +1,7 @@
-pacman -Qo $@
+#! /bin/sh
+if type pacman > /dev/null; then
+   pacman -Qo $@
+elif type dpkg > /dev/null; then
+    dpkg -S $@
+fi
+

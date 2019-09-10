@@ -1,2 +1,7 @@
 #! /bin/sh
-pacman -Ss $@
+if type pacman > /dev/null; then
+    pacman -Ss $@
+elif type apt-cache > /dev/null; then
+    apt-cache search $@
+fi
+

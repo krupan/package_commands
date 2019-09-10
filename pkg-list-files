@@ -1,2 +1,6 @@
 #! /bin/sh
-pacman -Ql $@
+if type pacman > /dev/null; then
+    pacman -Ql $@
+elif type dpkg > /dev/null; then
+    dpkg -L $@
+fi
