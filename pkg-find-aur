@@ -1,2 +1,2 @@
 #! /bin/sh
-yaourt -Ss $@
+yay -Ss $@

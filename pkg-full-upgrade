@@ -1,6 +1,6 @@
 #! /bin/sh
-if type yaourt > /dev/null; then
-    yaourt -Syu --aur
+if type yay > /dev/null; then
+    yay -Syu --aur
 elif type pacman > /dev/null; then
     sudo pacman -Syu
 elif type apt-get > /dev/null; then

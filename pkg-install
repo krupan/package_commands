@@ -4,4 +4,3 @@ if type pacman > /dev/null; then
 elif type apt-get > /dev/null; then
     sudo apt-get install $@
 fi
-
