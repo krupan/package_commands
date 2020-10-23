@@ -1,6 +1,6 @@
 #! /bin/sh
-if type pacman > /dev/null; then
+if type pacman > /dev/null 2>&1; then
     sudo pacman -Rns $@
-elif type apt-get > /dev/null; then
+elif type apt-get > /dev/null 2>&1; then
     sudo apt-get remove $@
 fi

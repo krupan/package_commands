@@ -1,10 +1,10 @@
 #! /bin/sh
-if type pacman > /dev/null; then
+if type pacman > /dev/null 2>&1; then
     sudo pacman -Syu
-    if type yay > /dev/null; then
+    if type yay > /dev/null 2>&1; then
         yay -Syu --aur
     fi
-elif type apt-get > /dev/null; then
+elif type apt-get > /dev/null 2>&1; then
     sudo apt-get update && sudo apt-get full-upgrade
 fi
 

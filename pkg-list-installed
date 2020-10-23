@@ -1,6 +1,8 @@
 #! /bin/sh
-if type pacman > /dev/null; then
+if type pacman > /dev/null 2>&1; then
     pacman -Q
-elif type dpkg-query > /dev/null; then
+elif type dpkg-query > /dev/null 2>&1; then
     dpkg -l
+elif type rpm > /dev/null 2>&1; then
+    rpm -qa
 fi
