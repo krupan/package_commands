@@ -1,6 +1,6 @@
 #! /bin/sh
 if type pacman > /dev/null 2>&1; then
-    sudo pacman -Rns $@
+    sudo pacman -Rns "$@"
 elif type apt-get > /dev/null 2>&1; then
-    sudo apt-get remove $@
+    sudo apt-get remove "$@"
 fi

@@ -1,7 +1,7 @@
 #! /bin/sh
 if type pacman > /dev/null; then
-   pacman -Qo $@
+   pacman -Qo "$@"
 elif type dpkg > /dev/null; then
-    dpkg -S $@
+    dpkg -S "$@"
 fi
 

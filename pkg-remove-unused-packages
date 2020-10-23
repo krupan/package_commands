@@ -1,6 +1,6 @@
 #! /bin/sh
 if type pacman > /dev/null 2>&1; then
-    sudo pacman -Rns $(pacman -Qtdq)
+    sudo pacman -Rns "$(pacman -Qtdq)"
 elif type apt-get > /dev/null 2>&1; then
     sudo apt-get autoremove
 fi
