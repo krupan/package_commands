@@ -1,6 +1,6 @@
 #! /bin/sh
 if type pacman > /dev/null 2>&1; then
-    sudo pacman -Syu
+    sudo pacman -S archlinux-keyring && sudo pacman -Syu
     if type yay > /dev/null 2>&1; then
         yay -Syu --aur
     fi
