@@ -1,2 +1,9 @@
 #! /bin/sh
-yay -S "$@"
+yay -S  --aur \
+    --needed \
+    --batchinstall \
+    --answerclean=None \
+    --answerdiff=None \
+    --answeredit=None \
+    --answerupgrade=None \
+    "$@"

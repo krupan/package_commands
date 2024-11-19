@@ -1,8 +1,37 @@
 #! /bin/sh
+set -e
+
 if type pacman > /dev/null 2>&1; then
     sudo pacman -S archlinux-keyring && sudo pacman -Syu
     if type yay > /dev/null 2>&1; then
-        yay -Syu --aur
+        # upgrade/install yay
+        YAY_PKG=yay-bin
+        YAY_PKG_TARBALL=$YAY_PKG.tar.gz
+
+        if [ -f /usr/bin/yay ]; then
+            pkg-remove --noconfirm $YAY_PKG
+        fi
+        sudo pacman -Sy --needed --noconfirm wget
+        if [ -e $YAY_PKG_TARBALL ]; then
+            # we'll get the latest snapshot
+            rm $YAY_PKG_TARBALL
+            rm -rf $YAY_PKG
+        fi
+        wget https://aur.archlinux.org/cgit/aur.git/snapshot/$YAY_PKG_TARBALL
+        tar xvf $YAY_PKG_TARBALL
+        cd $YAY_PKG
+        makepkg -i --needed --noconfirm
+        cd ..
+        rm -f $YAY_PKG_TARBALL
+        rm -rf $YAY_PKG
+
+        yay -Syu --aur \
+            --noconfirm \
+            --batchinstall \
+            --answerclean=None \
+            --answerdiff=None \
+            --answeredit=None \
+            --answerupgrade=None
     fi
 elif type apt-get > /dev/null 2>&1; then
     sudo apt-get update && sudo apt-get full-upgrade
